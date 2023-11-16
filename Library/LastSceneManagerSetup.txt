@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scenes/caller_graph.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
