@@ -36,19 +36,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Window_Graph2.cs" />
-     <Compile Include="Assets\DropdownHandler2.cs" />
-     <Compile Include="Assets\Data.cs" />
-     <Compile Include="Assets\DropdownHandler.cs" />
-     <Compile Include="Assets\LoadData2.cs" />
-     <Compile Include="Assets\LoadData.cs" />
-     <Compile Include="Assets\Window_Graph.cs" />
-     <Compile Include="Assets\DropdownHandler3.cs" />
-     <Compile Include="Assets\Window_Graph3.cs" />
-     <Compile Include="Assets\TestingScript.cs" />
-     <Compile Include="Assets\StaticClass.cs" />
-     <Compile Include="Assets\back_caller.cs" />
-     <Compile Include="Assets\LoadData3a.cs" />
+     <Compile Include="Assets\Daniel_Assets\TestingScript.cs" />
+     <Compile Include="Assets\Daniel_Assets\Window_Graph2.cs" />
+     <Compile Include="Assets\Daniel_Assets\DropdownHandler2.cs" />
+     <Compile Include="Assets\Daniel_Assets\Window_Graph3.cs" />
+     <Compile Include="Assets\Daniel_Assets\Data.cs" />
+     <Compile Include="Assets\Daniel_Assets\DropdownHandler.cs" />
+     <Compile Include="Assets\Daniel_Assets\LoadData3a.cs" />
+     <Compile Include="Assets\Daniel_Assets\LoadData2.cs" />
+     <Compile Include="Assets\Daniel_Assets\LoadData.cs" />
+     <Compile Include="Assets\Daniel_Assets\Window_Graph.cs" />
+     <Compile Include="Assets\Daniel_Assets\StaticClass.cs" />
+     <Compile Include="Assets\Daniel_Assets\DropdownHandler3.cs" />
+     <Compile Include="Assets\Daniel_Assets\back_caller.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

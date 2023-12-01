@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/caller_graph.unity
+    path: Assets/Daniel_Scenes/caller_graph.unity
     guid: e5a81ea0adb08441aaf70629493d63ef
   - enabled: 1
-    path: Assets/Scenes/graph1.unity
+    path: Assets/Daniel_Scenes/graph1.unity
     guid: c3f9267fb4af24f69918c3c5aea46505
   m_configObjects: {}
