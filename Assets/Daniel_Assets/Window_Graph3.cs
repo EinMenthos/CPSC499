@@ -19,9 +19,9 @@ public class Window_Graph3 : MonoBehaviour
     private RectTransform dashTemplateX;
     private RectTransform dashTemplateY;
     private List<GameObject> gameObjectList;
-    private List<int> dynamicValueList;
-    //private float timer = 0f;
-    public float interval = 0.5f; // Add data every 0.5 seconds
+    private List<float> dynamicValueList;
+    private float pointDelay = 0.1f; // Delay between each point in seconds
+    private WaitForSeconds delay;
 
     
     private void Awake() {
@@ -32,15 +32,10 @@ public class Window_Graph3 : MonoBehaviour
         dashTemplateY = graphContainer.Find("dashTemplateX").GetComponent<RectTransform>();
         gameObjectList = new List<GameObject>();
 
-        //List<int> valueList = new List<int>() {5, 98, 56, 45, 30, 22, 17, 15, 13, 17, 15, 13, 17, 25, 37, 40, 36, 33};
-        //List<int> valueList = new List<int>() {5};
-        //List<int> valueList = new List<int>();
-        dynamicValueList = new List<int>();
-        //Update();
-        //ShowGraph(valueList, -1);
+        dynamicValueList = new List<float>();
+        delay = new WaitForSeconds(pointDelay);
 
         //will generate a new random graph
-        
         //valueList.Clear();
         //for (int i = 0; i < 15; i++){
         //    valueList.Add(UnityEngine.Random.Range(0, 500));
@@ -51,22 +46,7 @@ public class Window_Graph3 : MonoBehaviour
 
     private void Update()
 {
-    /*
-    //Debug.Log("calling Update?");
-    // Check if it's time to add a new data point
-    timer += Time.deltaTime;
-    if (timer >= interval)
-    {
-        // Add a new data point (you can change this logic as needed)
-        dynamicValueList.Add(UnityEngine.Random.Range(0, 500));
 
-        // Show the updated graph
-        ShowGraph(dynamicValueList, -1);
-
-        // Reset the timer
-        timer = 0f;
-    }
-    */
 }
 
     public void comboListGraph(List<float> valueList){
@@ -76,8 +56,7 @@ public class Window_Graph3 : MonoBehaviour
         dashTemplateX = graphContainer.Find("dashTemplateY").GetComponent<RectTransform>();
         dashTemplateY = graphContainer.Find("dashTemplateX").GetComponent<RectTransform>();
         gameObjectList = new List<GameObject>();
-        ShowGraph(valueList, -1);
- 
+        StartCoroutine(ShowGraph(valueList, -1));
     }
 
     public void comboListGraphClear(){
@@ -99,13 +78,13 @@ public class Window_Graph3 : MonoBehaviour
         RectTransform rectransform = gameObject.GetComponent<RectTransform>();
         rectransform.anchoredPosition = anchoredPosition;
         //size of the dot
-        rectransform.sizeDelta = new Vector2(11,11);
+        rectransform.sizeDelta = new Vector2(5,5);
         rectransform.anchorMin = new Vector2(0,0);
         rectransform.anchorMax = new Vector2(0,0);
         return gameObject;
     }
 
-    private void ShowGraph(List<float> valueList, int maxVisibleAmount = -1){
+    private IEnumerator ShowGraph(List<float> valueList, int maxVisibleAmount = -1){
         Debug.Log("Creating graph...");
         if (maxVisibleAmount <= 0) {
             maxVisibleAmount = valueList.Count;
@@ -119,12 +98,10 @@ public class Window_Graph3 : MonoBehaviour
 
         float graphHeight = graphContainer.sizeDelta.y;
         float graphWidth = graphContainer.sizeDelta.x;
-        //value os yMaximum is set to 100
-        //float yMaximum = 100f;
 
+        //finding the max and min values from the list
         float yMaximum = valueList[0];
         float yMinimum = valueList[0];
-
         for (int i = Mathf.Max(valueList.Count - maxVisibleAmount, 0); i < valueList.Count; i++){
             float value = valueList[i];
             if (value > yMaximum)
@@ -148,21 +125,50 @@ public class Window_Graph3 : MonoBehaviour
         //Debug.Log(valueList.Count);
         int xIndex = 0;
 
+        //this will create the labels for y-axis
+        int separatorCount = 10;
+        for (int i = 0; i <= separatorCount; i++){
+            RectTransform labelY = Instantiate(labelTemplateY);
+            labelY.SetParent(graphContainer, false);
+            labelY.gameObject.SetActive(true);
+            //20f is the position of the label, 20 px under the x axis
+            float normalizedValue = i * 1f/ separatorCount;
+            labelY.anchoredPosition = new Vector2(-40f, normalizedValue * graphHeight);
+            //labelY.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
+            //labelY.GetComponent<Text>().text = Mathf.RoundToInt(yMinimum + (normalizedValue * (yMaximum - yMinimum))).ToString();            
+            labelY.GetComponent<Text>().text = Math.Round(yMinimum + (normalizedValue * (yMaximum - yMinimum)),1).ToString();            
+            gameObjectList.Add(labelY.gameObject);
+
+            //this will create the reference line for y-axis
+            RectTransform dashY = Instantiate(dashTemplateY);
+            dashY.SetParent(graphContainer, false);
+            dashY.gameObject.SetActive(true);
+            //20f is the position of the dash, 10 px at left axis
+            dashY.anchoredPosition = new Vector2(-10f, normalizedValue * graphHeight);
+            gameObjectList.Add(dashY.gameObject);
+        }
+
+        //this will create x-elements
         for (int i = Mathf.Max(valueList.Count - maxVisibleAmount, 0); i < valueList.Count; i++){
+
+            // Wait for the specified delay
+            yield return delay;
+
             float xPosition = xSize + xIndex * xSize;
             //float yPosition = (valueList[i] / yMaximum) * graphHeight;
             float yPosition = ((valueList[i] - yMinimum)/ (yMaximum - yMinimum) * graphHeight);
             GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
             gameObjectList.Add(circleGameObject);
 
+            //dots for each data
             if (lastCircleGameObject != null){
                 GameObject dotConnectionGameObject = CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition, circleGameObject.GetComponent<RectTransform>().anchoredPosition);
                 gameObjectList.Add(dotConnectionGameObject);
             }
             lastCircleGameObject = circleGameObject;
             
+            //this will create x-axis label 
             if (((i + 1995) % 5 == 0) || (i == 0) || (i == valueList.Count -1)) {
-                //this will create x-axis label 
                 RectTransform labelX = Instantiate(labelTemplateX);
                 labelX.SetParent(graphContainer, false);
                 labelX.gameObject.SetActive(true);
@@ -173,7 +179,6 @@ public class Window_Graph3 : MonoBehaviour
                 gameObjectList.Add(labelX.gameObject);
             }
             
-
             //this will create x-axis reference lines 
             RectTransform dashX = Instantiate(dashTemplateX);
             dashX.SetParent(graphContainer, false);
@@ -185,28 +190,7 @@ public class Window_Graph3 : MonoBehaviour
             CreateCircle(new Vector2(xPosition, yPosition));
             xIndex++;
         }
-        //this will create the labels for y-axis
-        int separatorCount = 10;
-        for (int i = 0; i <= separatorCount; i++){
-            RectTransform labelY = Instantiate(labelTemplateY);
-            labelY.SetParent(graphContainer, false);
-            labelY.gameObject.SetActive(true);
-            //20f is the position of the label, 20 px under the x axis
-            float normalizedValue = i * 1f/ separatorCount;
-            labelY.anchoredPosition = new Vector2(-40f, normalizedValue * graphHeight);
-            //labelY.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
-            labelY.GetComponent<Text>().text = Mathf.RoundToInt(yMinimum + (normalizedValue * (yMaximum - yMinimum))).ToString();            
-            gameObjectList.Add(labelY.gameObject);
 
-            //this will create the reference line for y-axis
-            RectTransform dashY = Instantiate(dashTemplateY);
-            dashY.SetParent(graphContainer, false);
-            dashY.gameObject.SetActive(true);
-            //20f is the position of the dash, 10 px at left axis
-            dashY.anchoredPosition = new Vector2(-10f, normalizedValue * graphHeight);
-            gameObjectList.Add(dashY.gameObject);
-  
-        }
     }
 
     //functions from libraries

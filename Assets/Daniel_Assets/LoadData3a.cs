@@ -20,7 +20,7 @@ public class LoadData3a : MonoBehaviour
         TextAsset readdata2 = Resources.Load<TextAsset>("cities_temp");
         string[] data2 = readdata2.text.Split(new char[] { '\n' });
 
-        Debug.Log("DB total rows: " + data2.Length);
+        Debug.Log("Read " + data2.Length + " entries from DB");
 
         //reading data3
 /*
@@ -82,13 +82,13 @@ public class LoadData3a : MonoBehaviour
 
             // Store the annual average temperature in your desired data structure (e.g., trees2)
             trees2.Add(average);
-            Debug.Log("sum: " + sum + " count: " + count + " avg: " + average);
+            // Debug.Log("sum: " + sum + " count: " + count + " avg: " + average);
         }
 
         //end - year average
 
 
-        Debug.Log("Data filtered from CSV file3: " + trees2.Count + " entries");
+        Debug.Log(trees2.Count + " entries is going to be plotted");
         Window_Graph3 Window_GraphScript = FindObjectOfType<Window_Graph3>();
         Window_GraphScript.comboListGraph(trees2);
     }
