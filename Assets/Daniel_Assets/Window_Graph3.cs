@@ -1,4 +1,4 @@
-  //create a graph
+//create a graph
 //reference: https://www.youtube.com/watch?v=CmU5-v-v1Qo
 
 //dynamic list
@@ -34,21 +34,14 @@ public class Window_Graph3 : MonoBehaviour
 
         dynamicValueList = new List<float>();
         delay = new WaitForSeconds(pointDelay);
-
-        //will generate a new random graph
-        //valueList.Clear();
-        //for (int i = 0; i < 15; i++){
-        //    valueList.Add(UnityEngine.Random.Range(0, 500));
-        //}
-        //ShowGraph(valueList);
         
     }
 
     private void Update()
 {
-
+    //there is no need to constantly update this scene
 }
-
+    
     public void comboListGraph(List<float> valueList){
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();

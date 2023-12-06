@@ -53,6 +53,7 @@ public class Window_Graph : MonoBehaviour
 {
     //Debug.Log("calling Update?");
     // Check if it's time to add a new data point
+    /*
     timer += Time.deltaTime;
     if (timer >= interval)
     {
@@ -65,6 +66,7 @@ public class Window_Graph : MonoBehaviour
         // Reset the timer
         timer = 0f;
     }
+    */
 }
 
     public void comboListGraph(List<int> valueList){
