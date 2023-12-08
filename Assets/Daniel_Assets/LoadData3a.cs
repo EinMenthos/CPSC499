@@ -27,11 +27,17 @@ public class LoadData3a : MonoBehaviour
         Dictionary<int, float> yearSum = new Dictionary<int, float>();
         Dictionary<int, int> yearCount = new Dictionary<int, int>();
 
+        float totalTemp = 0f;
+        int totalCount = 0;
+
         //reading data3
         for (int k = 1; k < data2.Length - 1; k++)
         {
             string[] row2 = SmartSplit(data2[k], ',', '"', false);
             float q2;
+
+            totalCount++;
+            totalTemp = totalTemp + float.Parse(row2[5]);
 
             //check if the city name match
             if (row2[1] == StaticClass.CrossSceneInformation)
@@ -73,6 +79,10 @@ public class LoadData3a : MonoBehaviour
 
         TextBox.text = StaticClass.CrossSceneInformation;
         Debug.Log(trees2.Count + " entries is going to be plotted");
+        
+        StaticClass.CrossSceneTemperature = totalTemp / totalCount;
+        Debug.Log("Average temperature in US: " + totalTemp / totalCount);
+
         Window_Graph3 Window_GraphScript = FindObjectOfType<Window_Graph3>();
 
         Window_GraphScript.comboListGraph(trees2);

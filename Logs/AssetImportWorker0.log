@@ -1,0 +1,267 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/danielwu/CPSC499
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+51465
+Successfully changed project path to: /Users/danielwu/CPSC499
+/Users/danielwu/CPSC499
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 22.76 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.1f1 (77a89f25062f)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/danielwu/CPSC499/Assets
+GfxDevice: creating device client; threaded=0
+2023-12-08 13:00:32.838 Unity[45517:1934842] (null) preferred device: Apple M1 (high power)
+2023-12-08 13:00:32.838 Unity[45517:1934842] Metal devices available: 1
+2023-12-08 13:00:32.838 Unity[45517:1934842] 0: Apple M1 (high power)
+2023-12-08 13:00:32.839 Unity[45517:1934842] Using device Apple M1 (high power)
+Initializing Metal device caps: Apple M1
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56517
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.001675 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 21.79 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.932 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.012113 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.481 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.1f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.18 seconds
+Refreshing native plugins compatible for Editor in 0.19 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1139 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 61.1 MB.
+System memory in use after: 61.2 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1584.
+Total: 1.299709 ms (FindLiveObjects: 0.120500 ms CreateObjectMapping: 0.024125 ms MarkObjects: 1.087666 ms  DeleteObjects: 0.066083 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fcf5faa480f03da39718f013bf7f1e6') in 0.263679 seconds
+  Import took 0.265615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.571429 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd81fa871589e3fd4dc8e8503c40abe63') in 0.003558 seconds
+  Import took 0.005624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.496859 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23a5639abdd1774df6959f90f1ffdc93') in 0.002511 seconds
+  Import took 0.004294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.152953 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8711b581332d5c9123f6aae50a09e0d9') in 0.003183 seconds
+  Import took 0.006090 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.679138 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1263e7177401485df95daa14316a47b') in 0.002719 seconds
+  Import took 0.004939 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000467 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.424 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1120 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.1 MB.
+System memory in use after: 140.3 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1587.
+Total: 1.104792 ms (FindLiveObjects: 0.126709 ms CreateObjectMapping: 0.024625 ms MarkObjects: 0.936042 ms  DeleteObjects: 0.016667 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.018736 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '884fb59bf26679289ccf530065c7c366') in 0.005874 seconds
+  Import took 0.007415 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.471101 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '884fb59bf26679289ccf530065c7c366') in 0.002979 seconds
+  Import took 0.005232 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000729 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.549 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1120 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.6 MB.
+System memory in use after: 141.7 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1590.
+Total: 1.318500 ms (FindLiveObjects: 0.157500 ms CreateObjectMapping: 0.025209 ms MarkObjects: 1.115166 ms  DeleteObjects: 0.019166 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1275.192776 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2efd03a6690b268d73e61fd84bb80fe6') in 0.009299 seconds
+  Import took 0.011861 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.711738 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd120e8c6d1a6cb56583275f083db0607') in 0.004243 seconds
+  Import took 0.006837 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000591 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.25 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.053 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1120 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 143.0 MB.
+System memory in use after: 143.1 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1593.
+Total: 1.676084 ms (FindLiveObjects: 0.145292 ms CreateObjectMapping: 0.036333 ms MarkObjects: 1.466291 ms  DeleteObjects: 0.026917 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.888532 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e6b7eda8bf61c586a0e1f91ae87e404') in 0.007634 seconds
+  Import took 0.009746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.145497 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e6b7eda8bf61c586a0e1f91ae87e404') in 0.003240 seconds
+  Import took 0.005481 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000579 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.26 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.064 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1120 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.4 MB.
+System memory in use after: 144.5 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1596.
+Total: 1.482625 ms (FindLiveObjects: 0.113167 ms CreateObjectMapping: 0.036375 ms MarkObjects: 1.314458 ms  DeleteObjects: 0.017416 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 112.364504 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62ffc040c32249b102f102772e82dd1d') in 0.006894 seconds
+  Import took 0.008893 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.148208 seconds.
+  path: Assets/Daniel_Assets/LoadData3a.cs
+  artifactKey: Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Daniel_Assets/LoadData3a.cs using Guid(01cb41d24eb2d4650b0e8dadeee3a69e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62ffc040c32249b102f102772e82dd1d') in 0.003160 seconds
+  Import took 0.005440 seconds .
+
