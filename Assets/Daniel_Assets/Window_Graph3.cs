@@ -1,9 +1,3 @@
-//create a graph
-//reference: https://www.youtube.com/watch?v=CmU5-v-v1Qo
-
-//dynamic list
-//https://www.youtube.com/watch?v=iIVBu-z0Akw
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +17,7 @@ public class Window_Graph3 : MonoBehaviour
     private float pointDelay = 0.1f; // Delay between each point in seconds
     private WaitForSeconds delay;
 
-    
+    //connect UI components to be used by script
     private void Awake() {
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();
@@ -37,11 +31,10 @@ public class Window_Graph3 : MonoBehaviour
         
     }
 
-    private void Update()
-{
+    private void Update(){
     //there is no need to constantly update this scene
-}
-    
+    }
+
     public void comboListGraph(List<float> valueList){
         graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
         labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();
@@ -52,26 +45,13 @@ public class Window_Graph3 : MonoBehaviour
         StartCoroutine(ShowGraph(valueList, -1));
     }
 
-    public void comboListGraphClear(){
-        graphContainer = transform.Find("graphContainer").GetComponent<RectTransform>();
-        labelTemplateX = graphContainer.Find("labelTemplateX").GetComponent<RectTransform>();
-        labelTemplateY = graphContainer.Find("labelTemplateY").GetComponent<RectTransform>();
-        dashTemplateX = graphContainer.Find("dashTemplateY").GetComponent<RectTransform>();
-        dashTemplateY = graphContainer.Find("dashTemplateX").GetComponent<RectTransform>();
-        foreach (GameObject gameObject in gameObjectList){
-            Destroy(gameObject);
-        }
-        gameObjectList.Clear();
-    }
-
     private GameObject CreateCircle(Vector2 anchoredPosition){
         GameObject gameObject = new GameObject("circle", typeof(Image));
         gameObject.transform.SetParent(graphContainer, false);
         gameObject.GetComponent<Image>().sprite = circleSprite;
         RectTransform rectransform = gameObject.GetComponent<RectTransform>();
         rectransform.anchoredPosition = anchoredPosition;
-        //size of the dot
-        rectransform.sizeDelta = new Vector2(5,5);
+        rectransform.sizeDelta = new Vector2(5,5);      //size of the dot
         rectransform.anchorMin = new Vector2(0,0);
         rectransform.anchorMax = new Vector2(0,0);
         return gameObject;
@@ -104,6 +84,7 @@ public class Window_Graph3 : MonoBehaviour
         }
         Debug.Log("maxTemp = " + yMaximum + " / minTemp: " + yMinimum);
         
+        //add 20% margin so that the min/max value is not at complete bottom/top 
         float yDifference = yMaximum - yMinimum;
         if (yDifference <= 0) {
             yDifference = 5f;
@@ -111,9 +92,7 @@ public class Window_Graph3 : MonoBehaviour
         yMaximum = yMaximum + (yDifference * 0.2f);
         yMinimum = yMinimum - (yDifference * 0.2f);
 
-        //xSize will increment in spaces of 40 "units"
         float xSize = graphWidth / (maxVisibleAmount + 1);
-        //float xSize = graphWidth / (valueList.Count + 1 );
         GameObject lastCircleGameObject = null;
         //Debug.Log(valueList.Count);
         int xIndex = 0;
@@ -124,11 +103,9 @@ public class Window_Graph3 : MonoBehaviour
             RectTransform labelY = Instantiate(labelTemplateY);
             labelY.SetParent(graphContainer, false);
             labelY.gameObject.SetActive(true);
-            //20f is the position of the label, 20 px under the x axis
+            //40f is the position of the label, 40 px under the x axis
             float normalizedValue = i * 1f/ separatorCount;
-            labelY.anchoredPosition = new Vector2(-40f, normalizedValue * graphHeight);
-            //labelY.GetComponent<Text>().text = Mathf.RoundToInt(normalizedValue * yMaximum).ToString();
-            //labelY.GetComponent<Text>().text = Mathf.RoundToInt(yMinimum + (normalizedValue * (yMaximum - yMinimum))).ToString();            
+            labelY.anchoredPosition = new Vector2(-40f, normalizedValue * graphHeight);       
             labelY.GetComponent<Text>().text = Math.Round(yMinimum + (normalizedValue * (yMaximum - yMinimum)),1).ToString();            
             gameObjectList.Add(labelY.gameObject);
 
@@ -136,19 +113,17 @@ public class Window_Graph3 : MonoBehaviour
             RectTransform dashY = Instantiate(dashTemplateY);
             dashY.SetParent(graphContainer, false);
             dashY.gameObject.SetActive(true);
-            //20f is the position of the dash, 10 px at left axis
+            //10f is the position of the dash, 10 px at left axis
             dashY.anchoredPosition = new Vector2(-10f, normalizedValue * graphHeight);
             gameObjectList.Add(dashY.gameObject);
         }
 
         //this will create x-elements
         for (int i = Mathf.Max(valueList.Count - maxVisibleAmount, 0); i < valueList.Count; i++){
-
             // Wait for the specified delay
             yield return delay;
 
             float xPosition = xSize + xIndex * xSize;
-            //float yPosition = (valueList[i] / yMaximum) * graphHeight;
             float yPosition = ((valueList[i] - yMinimum)/ (yMaximum - yMinimum) * graphHeight);
             GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition));
             gameObjectList.Add(circleGameObject);
@@ -165,10 +140,9 @@ public class Window_Graph3 : MonoBehaviour
                 RectTransform labelX = Instantiate(labelTemplateX);
                 labelX.SetParent(graphContainer, false);
                 labelX.gameObject.SetActive(true);
-                //20f is the position of the label, 10 px under the x axis
+                //10f is the position of the label, 10 px under the x axis
                 labelX.anchoredPosition = new Vector2(xPosition, -10f);
                 labelX.GetComponent<Text>().text = (i + 1995).ToString();
-                //labelX.alignment = TextAnchor.MiddleCenter;
                 gameObjectList.Add(labelX.gameObject);
             }
             
@@ -176,17 +150,15 @@ public class Window_Graph3 : MonoBehaviour
             RectTransform dashX = Instantiate(dashTemplateX);
             dashX.SetParent(graphContainer, false);
             dashX.gameObject.SetActive(true);
-            //20f is the position of the label, 10 px under the x axis
+            //10f is the position of the label, 10 px under the x axis
             dashX.anchoredPosition = new Vector2(xPosition, -10f);
             gameObjectList.Add(dashX.gameObject);
-
             CreateCircle(new Vector2(xPosition, yPosition));
             xIndex++;
         }
-
     }
 
-    //functions from libraries
+    // using this functions instead of importing an entire library
     private GameObject CreateDotConnection (Vector2 dotPositionA, Vector2 dotPositionB){
         GameObject gameObject = new GameObject("dotConnection", typeof(Image));
         gameObject.transform.SetParent(graphContainer, false);

@@ -27,8 +27,10 @@ public class LoadData3a : MonoBehaviour
         Dictionary<int, float> yearSum = new Dictionary<int, float>();
         Dictionary<int, int> yearCount = new Dictionary<int, int>();
 
-        float totalTemp = 0f;
-        int totalCount = 0;
+        float totalTemp1995 = 0f;
+        int totalCount1995 = 0;
+        float totalTemp2020 = 0f;
+        int totalCount2020 = 0;
 
         //reading data3
         for (int k = 1; k < data2.Length - 1; k++)
@@ -36,8 +38,17 @@ public class LoadData3a : MonoBehaviour
             string[] row2 = SmartSplit(data2[k], ',', '"', false);
             float q2;
 
-            totalCount++;
-            totalTemp = totalTemp + float.Parse(row2[5]);
+            //used to provide data for Arturo's scene (first and last temperature to make a gradual slope)
+            if (row2[4] == "1995")
+            {
+                totalCount1995++;
+                totalTemp1995 = totalTemp1995 + float.Parse(row2[5]);
+            }
+            if (row2[4] == "2019")
+            {
+                totalCount2020++;
+                totalTemp2020 = totalTemp2020 + float.Parse(row2[5]);
+            }
 
             //check if the city name match
             if (row2[1] == StaticClass.CrossSceneInformation)
@@ -57,7 +68,6 @@ public class LoadData3a : MonoBehaviour
                             yearCount[year]++;
                         }
                     }
-
                 }
             }
         }
@@ -74,24 +84,25 @@ public class LoadData3a : MonoBehaviour
             trees2.Add(average);
             // Debug.Log("sum: " + sum + " count: " + count + " avg: " + average);
         }
-
         //end - year average
 
         TextBox.text = StaticClass.CrossSceneInformation;
         Debug.Log(trees2.Count + " entries is going to be plotted");
         
-        StaticClass.CrossSceneTemperature = totalTemp / totalCount;
-        Debug.Log("Average temperature in US: " + totalTemp / totalCount);
+        //saving data for Arturo
+        StaticClass.CrossSceneTemperature1995 = totalTemp1995 / totalCount1995;
+        StaticClass.CrossSceneTemperature2020 = totalTemp2020 / totalCount2020;
+
+        //Debug.Log("Average temperature in 1995: " + totalTemp1995 / totalCount1995);
+        //Debug.Log("Average temperature in 2020: " + totalTemp2020 / totalCount2020);
 
         Window_Graph3 Window_GraphScript = FindObjectOfType<Window_Graph3>();
-
         Window_GraphScript.comboListGraph(trees2);
     }
 
-    //handle CSV with comma
+    //handle CSV with comma at city names
     public static string[] SmartSplit(string s, char splitter, char quote, bool includeQuotes)
     {
-        //if (splitter == quote) throw new ArgumentException();
         List<string> tokens = new List<string>();
         StringBuilder sb = new StringBuilder();
         bool insideQuotes = false;
